@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Registro Alumnos Primera Version</title>
+</head>
+<body>
+    <div class="form-container">
+        <h3 align="center">INGRESE LOS DATOS</h3>
+        <form action="conexion.php" method="POST" onsubmit="return validarObservaciones()">
+            <div class="form-group">
+                <label>Nombre</label>
+                <input type="text" class="form-control" name="nombreAlumno" placeholder="Ingrese nombre del alumno" required>
+            </div>
+            <div class="form-group">
+                <label>Apellido</label>
+                <input type="text" class="form-control" name="apellidoAlumno" placeholder="Ingrese el apellido del alumno" required>
+            </div>
+            <div class="form-group">
+                <label>Grado Académico</label>
+                <input type="text" class="form-control" name="gradoAlumno" placeholder="Ingrese el grado académico del alumno" required>
+            </div>
+            <div class="form-group">
+                <label>Actividad Extracurricular</label>
+                <select class="form-control" name="actividadExtracurricular" required>
+                    <option>Canto</option>
+                    <option>Baile</option>
+                    <option>Ajedrez</option>
+                    <option>Teatro</option>
+                    <option>Club de Lectura</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Horario</label>
+                <input type="time" class="form-control" name="horario" placeholder="Ingrese horario de actividad" required>
+            </div>
+            <div class="form-group">
+                <label>Nombre del Instructor</label>
+                <select class="form-control" name="nombreInstructor" required>
+                    <option>Maria</option>
+                    <option>Juan</option>
+                    <option>Marta</option>
+                    <option>Lucas</option>
+                    <option>Lucia</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Correo Electrónico Instructor</label>
+                <input type="email" class="form-control" name="correoInstructor" placeholder="Ingrese el correo electrónico" required>
+            </div>
+            <div class="form-group">
+                <label>Observaciones</label>
+                <input type="text" class="form-control" name="observaciones" placeholder="Ingrese observaciones adicionales">
+            </div>
+            <button type="submit" class="btn btn-secondary" class="boton">Enviar</button>
+        </form>
+    </div>
+
+    <script>
+        function validarObservaciones() {
+            //el campo de observaciones solo admite maximo 200 caracteres, se valida que no se exceda de ello
+            var observaciones = document.forms[0]["observaciones"].value;
+            if (observaciones.length > 200) {
+                alert("Las observaciones no deben exceder los 200 caracteres.");
+                return false;
+            }
+            return true;
+        }
+    </script>
+
+</body>
+</html>
